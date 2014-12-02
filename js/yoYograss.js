@@ -138,11 +138,11 @@ GrassFunction.prototype.apply = function(arg){ // {{{
   }
   else {
     for(var i=0; i<this.apps.length; i++){
-      apply(this.apps[i][0], this.apps[i][1], _localStack)
+      apply(this.apps[i][0], this.apps[i][1], _localStack);
     }
     return _localStack[_localStack.length-1];
   }
-} //}}}
+}; //}}}
 
 GrassMachine.prototype.defun = function(numOfArgs, apps){ // {{{
   // apps : e.g: [[1,2], [3,2], [1,4]]
@@ -163,7 +163,7 @@ tests.GrassMachine = { //{{{
     gm.defun(1,[[3,4],[3,1]]);
     gm.apply(1,1);
   }
-}
+};
 // }}}
 // }}}
 
@@ -177,7 +177,7 @@ function Grass(code){ //{{{
 Grass.prototype.appendCode = function(code){ // {{{
   this.code += code;
   return this.code;
-} //}}}
+}; //}}}
 
 Grass.prototype.parse = function(){ //{{{
   var tmp;
@@ -232,7 +232,7 @@ Grass.prototype.run = function(){ //{{{
   }
   this.gm.apply(1,1);
   return this.gm.output;
-} //}}}
+}; //}}}
 
 function applicationToArray(app){ //{{{
   // Www -> [1,2]
@@ -260,7 +260,7 @@ tests.grass = {
     var grass = new Grass(helloWorld);
     grass.run();
   }
-}
+};
 
 function runTests(){
   for (var testTask in tests){
